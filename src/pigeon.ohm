@@ -24,6 +24,7 @@ Pigeon {
   Term       = numeral 
              | strlit
              | Var
+			 | "(" Exp ")"	--parens
 
   coo        = "coo" ~idchar
   sqwak      = "sqwak" ~idchar
@@ -34,4 +35,6 @@ Pigeon {
 
   numeral    = digit+ ("." digit+)?
   strlit     = "\"" (~"\"" any)* "\""
+
+  space     +=  "//" (~"\n" any)*	--comment
 }
