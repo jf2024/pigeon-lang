@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A little compiler code-along",
   "main": "pigeon.js",
+  "type": "module",
   "scripts": {
     "test": "c8 mocha"
   },
