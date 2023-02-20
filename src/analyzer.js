@@ -13,6 +13,17 @@ function error(message, node) {
 const pigeonGrammar = ohm.grammar(fs.readFileSync("src/pigeon.ohm"));
 
 export default function analyze(sourceCode) {
+    const analyzer = pigeonGrammar.createSemantics().addOperation("rep", {
+        //rep = representation
+        Program(body) {
+            return new core.Program(body.rep());
+        },
+
+        PrintStmt(_sqwak, _left, argument, _right, _bird) {
+            return core.PrintStatement(argument.rep());
+        },
+    });
+
     const match = pigeonGrammar.match(sourceCode);
     if (!match.succeeded()) error(match.message);
     //console.log("You're good!");
