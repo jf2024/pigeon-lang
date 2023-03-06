@@ -1,18 +1,18 @@
 import util from "util";
 
-class Program {
+export class Program {
     constructor(statements) {
         this.statements = statements;
     }
 }
 
-class PrintStatement {
+export class PrintStatement {
     constructor(argument) {
         this.argument = argument;
     }
 }
 
-class VariableDeclaration {
+export class VariableDeclaration {
     constructor(variable, initializer) {
         //Object.assign(this, {variable, initializer}) //- another way to assign like below
 
@@ -21,22 +21,34 @@ class VariableDeclaration {
     }
 }
 
-class AssignmentStatement {
+export class AssignmentStatement {
     constructor(target, source) {
         this.target = target;
         this.source = source;
     }
 }
 
-class IfStatement {
+export class IfStatement {
     constructor(test, consequent, alternate) {
         Object.assign(this, { test, consequent, alternate });
     }
 }
 
-class BinaryExpression {
+export class BinaryExpression {
     constructor(op, left, right) {
         Object.assign(this, { op, left, right });
+    }
+}
+
+export class Variable {
+	constructor(name) {
+		this.name = name
+	}
+}
+
+export class StringLiteral {
+    constructor(contents) {
+        this.contents = contents;
     }
 }
 
