@@ -6,8 +6,8 @@ Pigeon {
             | IfStmt
             
   PrintStmt  = sqwak "(" Exp ")" "🐦"
-  VarDec     = coo Var "=" Exp "🐦"
-  AssignStmt = id "=" Exp "🐦"
+  VarDec     = coo id "=" Exp "🐦"
+  AssignStmt = Var "=" Exp "🐦"
   IfStmt     = maybe Exp yep Statement+ nope Statement+ fine
   
   id         = ~keyword idchar+
